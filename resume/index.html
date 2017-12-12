@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bootstrap Basics</title>
+	<title>Kenrick Chan</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jQuery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		var HTMLheaderName = "<h1 id='name'>%data%</h1>";
+		var HTMLheaderRole = "<span id='role'>%data%</span><hr>";
+
+		var HTMLemail = "<li><span class='teal-text'>E-Mail </span><span class='white-text'><a href='mailto:kenrick.chan@outlook.com'>%data%</a></span>"
+		var HTMLgithub = "<li><span class='teal-text'>Github </span><span class='white-text'><a href='http://www.github.com/kenrick-chan'>%data%</a></span>"
+		var HTMLtwitter = "<li><span class='teal-text'>Twitter </span><span class='white-text'><a href='http://www.twitter.com/kenrickchan'>%data%</a></span>"
+		var HTMLinstagram = "<li><span class='teal-text'>Instagram </span><span class='white-text'><a href='http://www.instagram.com/k__c____'>%data%</a></span>"
+	</script>
 </head>
 <body>
-	<h1>Hello World</h1>
+	<div id="main">
+		<div class="container-fluid outer">
+			<div id="header" class="container">
+				<ul id="contacts" class="flex-contacts"></ul>
+			</div>
+		</div>
+	</div>
+	<script src="js/info.js"></script>
 </body>
 </html>
