@@ -7,7 +7,8 @@ var bio = {
 		"twitter" : "@KenrickChan",
 		"instagram" : "k__c____"
 	},
-	"location" : "Brooklyn, NY"
+	"location" : "Brooklyn, NY",
+	"picture" : "images/stock.jpg"
 }
 
 var displayBio = function() {
@@ -24,6 +25,9 @@ var displayBio = function() {
 	$("#contacts").append(formatGithub);
 	$("#contacts").append(formatTwitter);
 	$("#contacts").append(formatInstagram);
+
+	var formatStock = HTMLstockpic.replace('%data%', bio['picture']);
+	$("#biopic").append(formatStock);
 }
 
 
