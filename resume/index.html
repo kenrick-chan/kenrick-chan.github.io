@@ -10,20 +10,49 @@
 		var HTMLheaderName = "<h1 id='name'>%data%</h1>";
 		var HTMLheaderRole = "<span id='role'>%data%</span><hr>";
 
-		var HTMLemail = "<li><span class='teal-text'>E-Mail </span><span class='white-text'><a href='mailto:kenrick.chan@outlook.com'>%data%</a></span>"
-		var HTMLgithub = "<li><span class='teal-text'>Github </span><span class='white-text'><a href='http://www.github.com/kenrick-chan'>%data%</a></span>"
-		var HTMLtwitter = "<li><span class='teal-text'>Twitter </span><span class='white-text'><a href='http://www.twitter.com/kenrickchan'>%data%</a></span>"
-		var HTMLinstagram = "<li><span class='teal-text'>Instagram </span><span class='white-text'><a href='http://www.instagram.com/k__c____'>%data%</a></span>"
+		var HTMLemail = "<li class='col-lg-3'><span class='teal-text'>E-Mail </span><span class='white-text'><a href='mailto:kenrick.chan@outlook.com'>%data%</a></span>"
+		var HTMLgithub = "<li class='col-lg-3'><span class='teal-text'>Github </span><span class='white-text'><a href='http://www.github.com/kenrick-chan'>%data%</a></span>"
+		var HTMLtwitter = "<li class='col-lg-3'><span class='teal-text'>Twitter </span><span class='white-text'><a href='http://www.twitter.com/kenrickchan'>%data%</a></span>"
+		var HTMLinstagram = "<li class='col-lg-3'><span class='teal-text'>Instagram </span><span class='white-text'><a href='http://www.instagram.com/k__c____'>%data%</a></span>"
+		var HTMLstockpic = "<img src=%data% class='biopic'>"
 	</script>
 </head>
 <body>
 	<div id="main">
+		<!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Navbar</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Features</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Pricing</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#">Disabled</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav> -->
 		<div class="container-fluid outer">
 			<div id="header" class="container">
 				<ul id="contacts" class="flex-contacts"></ul>
+				<div class="row">
+					<div class="col-lg-4 border" id="biopic"></div>
+					<div class="col-lg-4 border">TEST</div>
+					<div class="col-lg-4 border">TEST</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	
 	<script src="js/info.js"></script>
 </body>
 </html>
