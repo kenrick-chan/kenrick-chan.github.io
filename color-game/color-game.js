@@ -1,11 +1,12 @@
-var colorList = [
+var colorList = generateRandomColor(6);
+/*[
 	"rgb(255, 0, 0)",
 	"rgb(255, 255, 0)",
 	"rgb(0, 255, 0)",
 	"rgb(255, 0, 255)",
 	"rgb(0, 255, 255)",
 	"rgb(0, 0, 255)",
-]
+]*/
 
 var squares = document.querySelectorAll(".square");
 var pickedColor = randomColor();
@@ -43,4 +44,28 @@ function changeColors(color) {
 
 function randomColor() {
 	return (colorList[Math.floor(Math.random() * colorList.length)])
+}
+
+function generateRandomColor(num) {
+	// make an array
+	var arr = [];
+	// gloop through num times
+	for (var i = 1; i < num; i++) {
+		// generate random number; push to array
+		arr.push(randomRGBColor());
+		console.log(arr);
+	}
+	// return array
+	return arr
+}
+
+function randomRGBColor() {
+	// Generate red
+	var red = Math.floor(Math.random()*256);
+	// Generate Green
+	var green = Math.floor(Math.random()*256);
+	// Generate Blue
+	var blue = Math.floor(Math.random()*256);
+	var rgbString = "rgb(" + red.toString() + ", " + green.toString() + ", " +blue.toString() + ")";
+	return rgbString;
 }
