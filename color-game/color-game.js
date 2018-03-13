@@ -12,8 +12,34 @@ var squares = document.querySelectorAll(".square");
 var pickedColor = randomColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
+var resetButton = document.getElementById("reset");
+var banner = document.querySelector(".banner");
+
+console.log(banner);
 
 colorDisplay.textContent = pickedColor
+
+resetButton.addEventListener("click", function() {
+	if (resetButton.textContent === "Play Again!") {
+		resetButton.textContent = "New Colors";
+	}
+	resetColors();
+})
+
+function resetColors() {
+	// change array of Colors
+	colorList = generateRandomColor(6);
+	// assign new winning color
+	pickedColor = randomColor();
+	// apply new colors to squares
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = colorList[i];
+	}
+	// show new pickedColor
+	colorDisplay.textContent = pickedColor;
+	// reset banner to default
+	banner.style.backgroundColor = "#232323";
+}
 
 for(var i=0; i < squares.length; i++) {
 	// assigned color to square
@@ -26,7 +52,9 @@ for(var i=0; i < squares.length; i++) {
 		// compare colors
 		if(clickedColor === pickedColor) {
 			changeColors(pickedColor);
-			messageDisplay.textContent = "Correct"; }
+			messageDisplay.textContent = "Correct";
+			banner.style.backgroundColor = pickedColor;
+			resetButton.textContent = "Play Again!"; }
 		else {
 			this.style.backgroundColor = "#232323";
 			messageDisplay.textContent = "Try Again"}
@@ -53,7 +81,6 @@ function generateRandomColor(num) {
 	for (var i = 1; i < num; i++) {
 		// generate random number; push to array
 		arr.push(randomRGBColor());
-		console.log(arr);
 	}
 	// return array
 	return arr

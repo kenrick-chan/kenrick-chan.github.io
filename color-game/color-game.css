@@ -18,6 +18,9 @@ body {
 	max-width: 600px;
 }
 
-span {
-	color: #FFFFFF;
+.stripe {
+	height: 30px;
+	text-align: center;
+	color: #232323;
+	background-color: white;
 }
