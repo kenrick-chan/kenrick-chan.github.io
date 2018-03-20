@@ -24,3 +24,7 @@ body {
 	color: #232323;
 	background-color: white;
 }
+
+.selected {
+	background: blue;
+}

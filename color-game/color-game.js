@@ -1,4 +1,5 @@
-var colorList = generateRandomColor(6);
+var numOfSquares = 3;
+var colorList = generateRandomColor(numOfSquares);
 /*[
 	"rgb(255, 0, 0)",
 	"rgb(255, 255, 0)",
@@ -14,8 +15,8 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var resetButton = document.getElementById("reset");
 var banner = document.querySelector(".banner");
-
-console.log(banner);
+var easyBtn = document.getElementById("easyBtn");
+var hardBtn = document.getElementById("hardBtn");
 
 colorDisplay.textContent = pickedColor
 
@@ -26,9 +27,45 @@ resetButton.addEventListener("click", function() {
 	resetColors();
 })
 
+easyBtn.addEventListener("click", function() {
+	easyBtn.classList.add("selected");
+	hardBtn.classList.remove("selected");
+	numOfSquares = 3;	
+	// Generate new colors
+	colorList = generateRandomColor(numOfSquares);
+	pickedColor = randomColor();
+	// Show new pickedColor
+	colorDisplay.textContent = pickedColor;
+	// Apply colors to square
+	for (i=0; i < squares.length; i++) {
+		if (colorList[i]) {
+			squares[i].style.backgroundColor = colorList[i];
+		}
+		else {
+			squares[i].style.display = "none";
+		}
+	}
+})
+
+hardBtn.addEventListener("click", function() {
+	hardBtn.classList.add("selected");
+	easyBtn.classList.remove("selected");
+	numOfSquares = 6;
+	// Generate new colors
+	colorList = generateRandomColor(numOfSquares);
+	pickedColor = randomColor();
+	// Show new pickedColor
+	colorDisplay.textContent = pickedColor;
+	// Apply colors to square
+	for (i=0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = colorList[i];
+		squares[i].style.display = "block";
+	}
+})
+
 function resetColors() {
 	// change array of Colors
-	colorList = generateRandomColor(6);
+	colorList = generateRandomColor(numOfSquares);
 	// assign new winning color
 	pickedColor = randomColor();
 	// apply new colors to squares
@@ -78,7 +115,7 @@ function generateRandomColor(num) {
 	// make an array
 	var arr = [];
 	// gloop through num times
-	for (var i = 1; i < num; i++) {
+	for (var i = 1; i < num+1; i++) {
 		// generate random number; push to array
 		arr.push(randomRGBColor());
 	}
@@ -96,3 +133,4 @@ function randomRGBColor() {
 	var rgbString = "rgb(" + red.toString() + ", " + green.toString() + ", " +blue.toString() + ")";
 	return rgbString;
 }
+
