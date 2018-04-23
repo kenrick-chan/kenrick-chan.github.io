@@ -32,8 +32,7 @@ easyBtn.addEventListener("click", function() {
 	hardBtn.classList.remove("selected");
 	numOfSquares = 3;	
 	// Generate new colors
-	colorList = generateRandomColor(numOfSquares);
-	pickedColor = randomColor();
+	resetColors();
 	// Show new pickedColor
 	colorDisplay.textContent = pickedColor;
 	// Apply colors to square
@@ -52,8 +51,7 @@ hardBtn.addEventListener("click", function() {
 	easyBtn.classList.remove("selected");
 	numOfSquares = 6;
 	// Generate new colors
-	colorList = generateRandomColor(numOfSquares);
-	pickedColor = randomColor();
+	resetColors();
 	// Show new pickedColor
 	colorDisplay.textContent = pickedColor;
 	// Apply colors to square
@@ -75,7 +73,7 @@ function resetColors() {
 	// show new pickedColor
 	colorDisplay.textContent = pickedColor;
 	// reset banner to default
-	banner.style.backgroundColor = "#232323";
+	banner.style.backgroundColor = "steelblue";
 }
 
 for(var i=0; i < squares.length; i++) {
