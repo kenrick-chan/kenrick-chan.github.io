@@ -1,4 +1,4 @@
-var numOfSquares = 3;
+var numOfSquares = 6;
 var colorList = generateRandomColor(numOfSquares);
 /*[
 	"rgb(255, 0, 0)",
