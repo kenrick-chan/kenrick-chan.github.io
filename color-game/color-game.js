@@ -61,7 +61,6 @@ function resetColors() {
 	resetButton.textContent = "New Colors"; // Reset resetButton
 	messageDisplay.textContent = ""; // Reset messageDisplay
 	banner.style.backgroundColor = "steelblue"; // Reset banner to default backgroundColor
-	colorDisplay.textContent = pickedColor; // Show new color to guess
 	colorList = generateRandomColor(numOfSquares); // Generate new array of colors
 	pickedColor = randomColor(); // Assign winning color
 	// apply new colors to squares
@@ -74,7 +73,7 @@ function resetColors() {
 			squares[i].style.display = "none";
 		}
 	}
-
+	colorDisplay.textContent = pickedColor; // Show new color to guess
 }
 
 // Function changes the color of div element 'square'
