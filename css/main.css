@@ -1,0 +1,24 @@
+#container {
+	margin: 0 auto;
+	width: 500px;
+}
+
+h1 {
+	font-weight: normal;
+	text-align: center;
+	color: white;
+}
+
+.contact{
+	list-style-type: none;
+	display: inline;
+}
+
+body {
+	background: gray;
+}
+
+#main-image {
+	width: 500px;
+}
+
