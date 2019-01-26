@@ -1,0 +1,27 @@
+body {
+	background: purple;
+}
+
+h1 {
+	padding: 15px 15px 15px 20px;
+	font-weight: normal;
+}
+
+li {
+	list-style-type: none;
+}
+
+input {
+	width: 360px;
+}
+
+#container {
+	border: solid gray 2px;
+	width: 360px;
+	margin: 0 auto;
+}
+
+.completed {
+	color: gray;
+	text-decoration: line-through;
+}
