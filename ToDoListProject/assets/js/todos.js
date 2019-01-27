@@ -24,5 +24,5 @@ $("input[type='text']").on("keypress",function(e){
 })
 
 $("i[class='fa fa-plus'").on("click", function(){
-	$("input").toggle();
+	$("input[type='text']").fadeToggle();
 })
