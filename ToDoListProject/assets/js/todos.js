@@ -18,7 +18,11 @@ $("input[type='text']").on("keypress",function(e){
 	if (e.which===13) {
 		//console.log($(this).val());
 		var inputText = $(this).val();
-		$("ul").append("<li><span>X</span> " + inputText + "</li>");
+		$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + inputText + "</li>");
 		$(this).val("");
 	}
+})
+
+$("i[class='fa fa-plus'").on("click", function(){
+	$("input").toggle();
 })
