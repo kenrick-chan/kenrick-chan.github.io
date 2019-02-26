@@ -1,5 +1,5 @@
-var el = document.getElementById("submit");
-el.addEventListener("click", function() {
+var el = document.getElementById('submit');
+el.addEventListener('click', function() {
 	var url = document.getElementById("url");
 	alert(YouTubeGetID(url.value));
 })
