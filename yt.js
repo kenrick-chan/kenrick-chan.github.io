@@ -1,7 +1,7 @@
 var el = document.getElementById("submit");
 el.addEventListener("click", function() {
 	var url = document.getElementById("url");
-	YouTubeGetID(url.value);
+	alert(YouTubeGetID(url.value));
 }
 
 /*function YouTubeGetID(){
