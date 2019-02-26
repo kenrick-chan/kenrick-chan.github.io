@@ -1,4 +1,10 @@
-function YouTubeGetID(){
+var el = document.getElementById("submit");
+el.addEventListener("click", function() {
+	var url = document.getElementById("url");
+	YouTubeGetID(url.value);
+}
+
+/*function YouTubeGetID(){
 	var url = document.getElementById("url");
 
 	var ID = '';
@@ -12,9 +18,9 @@ function YouTubeGetID(){
 	}
 	//return ID;
 	alert(ID);
-}
+} */
 
-/*function YouTubeGetID(url){
+function YouTubeGetID(url){
   var ID = '';
   url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
   if(url[2] !== undefined) {
@@ -25,4 +31,4 @@ function YouTubeGetID(){
     ID = url;
   }
     return ID;
-}*/
+}
