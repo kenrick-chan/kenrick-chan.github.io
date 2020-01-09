@@ -1,85 +1,43 @@
 <!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-
-  <title>Kenrick Chan</title>
-  <link href="css/style.css" rel="stylesheet">
-  <script src="js/jQuery.js"></script>
-  <script src="js/helper.js"></script>
-
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
-<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
-
-<!-- test git push-->
-
-  <meta name="viewport" content="width=device-width">
+	<title>Kenrick Chan</title>
+	<script type="text/javascript" src="js/jQuery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-  <div id="main">
-    <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
-    </div>
-    <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
-      <h2>Work Experience</h2>
-    </div>
-    <div id="projects">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class="gray">
-      <h2>Education</h2>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text"><a href="mailto:kenrick.chan@outlook.com">Let's Connect</a></h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
+	<div id="container">
+		<h1>Kenrick Chan</h1><span> Web Developer</span>
+		<img id="main-image" src="images\main.jpg">
 
-  <script src="js/resumeBuilder.js"></script>
-
-  <script type="text/javascript">
-    // Notice how all of a sudden there's JavaScript inside this HTML
-    // document? You can write JavaScript between <script> tags. At the end of your
-    // JavaScript, don't forget the closing script tag with the slash (/).
+		<div id="content">
+			<ul>
+				<li class="topic contact">Contact: </li>
+				<li class="contact"><span>Email: </span><a href="mailto:kenrick.chan@outlook.com">Kenrick Chan</a></li>
+				<li class="contact"><span>Github: </span></li><a href="http://github.com/kenrick-chan">kenrick-chan</a></span>
+			</ul>
+			<ul id="work">
+				<li class="topic contact">Projects: </li>
+				<li><a href="color-game\index.html">Color Game</a>: A game in which the player chooses the correct color matched in the presented RGB <br>
+					Uses: HTML, Javascript, CSS
+				</li>
+				<br>
+				<li><a href="ToDoListProject\index.html">To-Do List</a>: A tool in which the user can create tasks that'll allow them to complete or remove tasks from the list <br>
+					Uses: HTML, Javascript, CSS <br>
+					Libraries: JQuery
+				</li>
+				<br>
+				<li><a href="patatap-clone\index.html">Patatap Clone</a>: A simple application that animates a circle whilst playing a sound that corresponds to a certain keypress <br>
+					Uses: HTML, Javascript <br>
+					Libraries: howler.js, paper.js
+				</li>
+			</ul>
+		</div>
 
 
-    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
-
-    //   two slashes for all following characters on a single line, or
-
-    /*
-        an opening and closing set of slash asterisks for block comments.
-    */
+	</div>
 
 
-    if(document.getElementsByClassName('flex-item2').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
-    }
-  </script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
