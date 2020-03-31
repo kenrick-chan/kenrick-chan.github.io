@@ -7,10 +7,13 @@ h1 {
 	font-weight: normal;
 	text-align: center;
 	color: white;
+	display: inline;
 }
 
-.contact{
+li {
 	list-style-type: none;
+}
+.contact{
 	display: inline;
 }
 
@@ -22,3 +25,6 @@ body {
 	width: 500px;
 }
 
+.topic {
+	font-weight: bold;
+}
