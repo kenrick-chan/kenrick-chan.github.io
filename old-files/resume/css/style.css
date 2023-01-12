@@ -1,0 +1,61 @@
+.header {
+	font-family: sans-serif, bold;
+	display: ;
+
+}
+
+.outer {
+	background-color: #2C7873;
+}
+
+#role {
+	padding: 5px;
+	color: #FFFFFF;
+}
+
+.biopic {
+	width: 200px;
+}
+
+.border {
+	border: 1px solid pink;
+}
+
+.container {
+	padding: 20px;
+}
+
+.teal-text {
+	color: #64B98F;
+}
+
+
+
+span {
+	font-size: 20px;
+	padding: 5px;
+	
+}
+
+a {
+	color: white;
+}
+
+ul {
+	text-align: center;
+}
+
+li {
+	display: inline;
+} 
+
+h1 {
+	font-weight: bold;
+	font-size: 40px;
+	color: #64B98F;
+	display: inline;
+}
+
+hr {
+	margin: 5px;
+}
