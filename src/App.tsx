@@ -18,7 +18,6 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Hero event={eventInfo} />
-      <RSVP host={host} />
       <Details event={eventInfo} />
       <Divider />
       <Venue venue={venueInfo} />
@@ -26,6 +25,8 @@ export default function App() {
       <Registry links={registryLinks} />
       <Divider />
       <FAQ items={faqItems} />
+      <Divider />
+      <RSVP host={host} />
       <Footer host={host} event={eventInfo} />
     </div>
   );

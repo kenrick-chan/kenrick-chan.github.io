@@ -5,7 +5,7 @@ interface RSVPProps {
   rsvpBy?: string;
 }
 
-export default function RSVP({ host, rsvpBy }: RSVPProps) {
+export default function RSVP({ host }: RSVPProps) {
   return (
     <section id="rsvp" className="mx-auto max-w-3xl px-6 py-20 text-center">
       <span className="tag-label">kindly reply</span>
@@ -13,8 +13,8 @@ export default function RSVP({ host, rsvpBy }: RSVPProps) {
         RSVP
       </h2>
       <p className="mx-auto mt-4 max-w-md font-body text-ink/80">
-        {rsvpBy
-          ? `We'd love to know you're coming — please text to RSVP by ${rsvpBy}.`
+        {host.rsvpBy
+          ? `We'd love to know you're coming — please text to RSVP by ${host.rsvpBy}.`
           : "We'd love to know you're coming — please text to let us know if you can make it."}
       </p>
 

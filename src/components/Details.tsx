@@ -4,7 +4,7 @@ interface DetailsProps {
   event: EventInfo;
 }
 
-export default function Details({ event, schedule }: DetailsProps) {
+export default function Details({ event }: DetailsProps) {
   return (
     <section id="details" className="mx-auto max-w-3xl px-6 py-20">
       <span className="tag-label">the details</span>
@@ -26,25 +26,6 @@ export default function Details({ event, schedule }: DetailsProps) {
             {event.dressCode ?? "Whatever feels comfortable."}
           </p>
         </div>
-      </div>
-
-      <div className="mt-10 rounded-2xl bg-surface p-6 shadow-sm">
-        <h3 className="font-display text-lg text-sage-dark">
-          A rough timeline
-        </h3>
-        <ul className="mt-4 divide-y divide-sage-light/40">
-          {schedule.map((item) => (
-            <li
-              key={item.time}
-              className="flex items-baseline justify-between gap-4 py-3 font-body"
-            >
-              <span className="font-tag text-sm text-sage-dark">
-                {item.time}
-              </span>
-              <span className="text-right text-ink/80">{item.activity}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );
