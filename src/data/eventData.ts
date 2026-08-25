@@ -14,7 +14,6 @@ export const eventInfo: EventInfo = {
   parentNames: "Tracy & Kenrick",
   date: "Sunday, October 11, 2026",
   time: "11:00 AM – 3:00 PM",
-  theme: "Green & Gray",
   dressCode: "Casual",
   hostNote:
     "We can't wait to celebrate the newest member of our family with the people who mean the most to us. We will also be revealing the gender!",
@@ -33,7 +32,7 @@ export const registryLinks: RegistryLink[] = [
   {
     store: "Babylist",
     url: "https://my.babylist.com/baby-ktchan-2026",
-    note: "Our main registry",
+    note: "",
   },
   {
     store: "Target",
@@ -45,7 +44,11 @@ export const faqItems: FaqItem[] = [
   {
     question: "Should I bring a gift?",
     answer:
-      "Gifts are welcome but never required — our registry links are above if you'd like ideas. Your presence is the present! No cards needed! We'd love to fill baby's shelves with books instead.",
+      "Gifts are welcome but never required — our registry links are above if you'd like ideas. Your presence is the present!"
+  },
+  {
+    question: "How about a card?",
+    answer: "In lieu of a card, we'd love a book for baby's growing library.",
   },
   {
     question: "Are kids welcome?",

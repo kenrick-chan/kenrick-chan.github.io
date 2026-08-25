@@ -18,6 +18,10 @@ export default function RSVP({ host }: RSVPProps) {
           : "We'd love to know you're coming — please text to let us know if you can make it."}
       </p>
 
+      <p className="mx-auto mt-4 max-w-md font-body text-ink/80">
+          Please include the number of attendees and their names
+      </p>
+
       <p className="mt-6 font-display text-2xl text-sage-dark">
         {host.contactValue}
       </p>
