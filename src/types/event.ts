@@ -22,11 +22,6 @@ export interface RegistryLink {
   note?: string;
 }
 
-export interface ScheduleItem {
-  time: string;
-  activity: string;
-}
-
 export interface FaqItem {
   question: string;
   answer: string;
@@ -36,4 +31,5 @@ export interface HostInfo {
   name: string;
   contactMethod: string; // e.g. "Text" or "Email"
   contactValue: string;
+  rsvpBy: string;
 }

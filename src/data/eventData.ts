@@ -2,7 +2,6 @@ import type {
   EventInfo,
   VenueInfo,
   RegistryLink,
-  ScheduleItem,
   FaqItem,
   HostInfo,
 } from "../types/event";
@@ -40,36 +39,22 @@ export const registryLinks: RegistryLink[] = [
     store: "Target",
     url: "https://www.target.com/gift-registry/gift-giver?registryId=7b4da860-7e26-11f1-87c9-bf84e564390c&type=BABY",
   },
-  // TODO: remove
-  {
-    store: "Amazon",
-    url: "https://www.amazon.com/baby-reg/",
-  },
-];
-
-// TODO: Remove this
-export const schedule: ScheduleItem[] = [
-  { time: "2:00 PM", activity: "Arrival & light bites" },
-  { time: "2:30 PM", activity: "Welcome & story time" },
-  { time: "3:00 PM", activity: "Games" },
-  { time: "3:45 PM", activity: "Cake & gift opening" },
-  { time: "4:30 PM", activity: "Farewell favors" },
 ];
 
 export const faqItems: FaqItem[] = [
   {
     question: "Should I bring a gift?",
     answer:
-      "Gifts are welcome but never required — our registry links are above if you'd like ideas. Your presence is the present. No cards needed! We'd love to fill baby's shelves with books instead.",
+      "Gifts are welcome but never required — our registry links are above if you'd like ideas. Your presence is the present! No cards needed! We'd love to fill baby's shelves with books instead.",
   },
   {
     question: "Are kids welcome?",
     answer:
-      "We love your little ones, but we're keeping this gathering adults-only so the parents-to-be can relax. Thank you for understanding.",
+      "Absolutely — we'd love to have your little ones join us! There will be plenty of space for them!",
   },
   {
     question: "Is there parking?",
-    answer: "Yes — free parking is available in the lot behind the venue.",
+    answer: "Yes — However venue parking is very limited but street parking should be plenty.",
   },
   {
     question: "What if I have a food allergy?",
@@ -82,4 +67,5 @@ export const host: HostInfo = {
   name: "Kenrick",
   contactMethod: "Text",
   contactValue: "(555) 123-4567",
+  rsvpBy: "September 15, 2026"
 };

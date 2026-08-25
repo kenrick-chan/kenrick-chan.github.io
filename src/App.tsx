@@ -1,5 +1,6 @@
 import Hero from "./components/Hero";
 import Details from "./components/Details";
+import RSVP from "./components/RSVP";
 import Venue from "./components/Venue";
 import Registry from "./components/Registry";
 import FAQ from "./components/FAQ";
@@ -9,7 +10,6 @@ import {
   eventInfo,
   venueInfo,
   registryLinks,
-  schedule,
   faqItems,
   host,
 } from "./data/eventData";
@@ -18,7 +18,8 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Hero event={eventInfo} />
-      <Details event={eventInfo} schedule={schedule} />
+      <RSVP host={host} />
+      <Details event={eventInfo} />
       <Divider />
       <Venue venue={venueInfo} />
       <Divider flip />

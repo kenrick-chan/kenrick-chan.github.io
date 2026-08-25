@@ -1,8 +1,7 @@
-import type { EventInfo, ScheduleItem } from "../types/event";
+import type { EventInfo } from "../types/event";
 
 interface DetailsProps {
   event: EventInfo;
-  schedule: ScheduleItem[];
 }
 
 export default function Details({ event, schedule }: DetailsProps) {
