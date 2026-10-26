@@ -1,0 +1,232 @@
+/* All selectors are scoped to .game2048 / .g-* so they won't clash with Tailwind or global styles. */
+.game2048 {
+  --g-bg: #faf8ef;
+  --g-fg: #4a4036;
+  --g-muted: #8a7f72;
+  --g-board: #bbada0;
+  --g-cell: #cdc1b4;
+  --g-btn: #8f7a66;
+  --g-btnfg: #fff;
+  --g-card: #eee4da;
+
+  box-sizing: border-box;
+  width: min(94vw, 460px);
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  color: var(--g-fg);
+  font-family: ui-rounded, 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .game2048 {
+    --g-bg: #1d1b19;
+    --g-fg: #ece5dc;
+    --g-muted: #a39a8f;
+    --g-board: #3a3631;
+    --g-cell: #2c2925;
+    --g-btn: #b08a62;
+    --g-btnfg: #1d1b19;
+    --g-card: #2c2925;
+  }
+}
+
+.game2048 *,
+.game2048 *::before,
+.game2048 *::after {
+  box-sizing: border-box;
+}
+
+.g-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.g-header h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 12vw, 3.6rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.g-scores {
+  display: flex;
+  gap: 8px;
+}
+.g-score {
+  min-width: 72px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--g-board);
+  color: #fff;
+  text-align: center;
+}
+.g-score small {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.g-score b {
+  font-size: 1.2rem;
+}
+
+.g-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+.g-bar p {
+  margin: 0;
+  color: var(--g-muted);
+  font-size: 0.95rem;
+}
+
+.game2048 button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--g-btn);
+  color: var(--g-btnfg);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.game2048 button:active {
+  transform: scale(0.97);
+}
+
+.g-board {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--g-board);
+  container-type: inline-size;
+  touch-action: none; /* lets us handle swipes without scrolling the page */
+  user-select: none;
+}
+
+.g-cell,
+.g-tile {
+  position: absolute;
+  width: 22.5%;
+  height: 22.5%;
+  border-radius: 6px;
+}
+.g-cell {
+  background: var(--g-cell);
+}
+
+.g-tile {
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee4da;
+  color: #776e65;
+  font-size: 9cqw;
+  font-weight: 800;
+  transition: transform 0.12s ease-in-out;
+}
+.g-tile.d3 {
+  font-size: 7.5cqw;
+}
+.g-tile.d4,
+.g-tile.d5 {
+  font-size: 6cqw;
+}
+.g-tile.new {
+  animation: g-appear 0.2s ease-out;
+}
+.g-tile.pop {
+  animation: g-pop 0.15s ease-out;
+}
+@keyframes g-appear {
+  from {
+    opacity: 0;
+    scale: 0.4;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes g-pop {
+  50% {
+    scale: 1.15;
+  }
+}
+
+.g-tile[data-value='2'] { background: #eee4da; }
+.g-tile[data-value='4'] { background: #ede0c8; }
+.g-tile[data-value='8'] { background: #f2b179; color: #fff; }
+.g-tile[data-value='16'] { background: #f59563; color: #fff; }
+.g-tile[data-value='32'] { background: #f67c5f; color: #fff; }
+.g-tile[data-value='64'] { background: #f65e3b; color: #fff; }
+.g-tile[data-value='128'] { background: #edcf72; color: #fff; }
+.g-tile[data-value='256'] { background: #edcc61; color: #fff; }
+.g-tile[data-value='512'] { background: #edc850; color: #fff; }
+.g-tile[data-value='1024'] { background: #edc53f; color: #fff; }
+.g-tile[data-value='2048'] {
+  background: #edc22e;
+  color: #fff;
+  box-shadow: 0 0 24px 6px rgba(237, 194, 46, 0.6);
+}
+.g-tile.big {
+  background: #3c3a32;
+  color: #fff;
+}
+
+.g-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--g-card) 82%, transparent);
+  text-align: center;
+  animation: g-fade 0.3s ease-out 0.35s both;
+}
+.g-overlay h2 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+.g-overlay div {
+  display: flex;
+  gap: 10px;
+}
+@keyframes g-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.g-hint {
+  margin: 14px 0 0;
+  color: var(--g-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-tile {
+    transition: none;
+  }
+  .g-tile.new,
+  .g-tile.pop {
+    animation: none;
+  }
+}
