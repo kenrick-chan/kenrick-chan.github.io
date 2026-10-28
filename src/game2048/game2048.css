@@ -74,11 +74,7 @@
 }
 
 .g-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
 }
 .g-bar p {
   margin: 0;
@@ -96,8 +92,24 @@
   font-weight: 700;
   cursor: pointer;
 }
-.game2048 button:active {
+.game2048 button:active:not(:disabled) {
   transform: scale(0.97);
+}
+.game2048 button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.g-actions {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 6px;
+}
+.g-notice {
+  min-height: 1.3em; /* reserved so the board doesn't jump when a message appears */
+  margin: 0 0 8px;
+  color: var(--g-muted);
+  font-size: 0.85rem;
 }
 
 .g-board {

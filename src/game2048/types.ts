@@ -28,4 +28,5 @@ export type Action =
   | { type: 'move'; direction: Direction }
   | { type: 'new' }
   | { type: 'keepGoing' }
+  | { type: 'load'; state: GameState }
   | { type: 'cleanup' }

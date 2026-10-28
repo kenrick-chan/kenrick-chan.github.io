@@ -2,11 +2,24 @@
   color-scheme: light dark;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
+  position: fixed;
+  inset: 0;
+  width: 100%;
   margin: 0;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;           /* no page scrolling */
+  overscroll-behavior: none;  /* no pull-to-refresh or rubber-banding */
+  touch-action: none;         /* swipes go to the game, not the browser */
+  user-select: none;
   background: #faf8ef;
 }
 

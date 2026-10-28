@@ -1,5 +1,3 @@
-import { useRef } from 'react'
-import type { TouchEvent } from 'react'
 import { SIZE } from './logic'
 import { useGame } from './useGame'
 import './game2048.css'
@@ -9,27 +7,7 @@ const STEP = 114.815
 const CELL_STEP = 25.833
 
 export default function Game2048() {
-  const { state, move, newGame, keepGoing } = useGame()
-  const touchStart = useRef<{ x: number; y: number } | null>(null)
-
-  const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    const t = e.touches[0]
-    touchStart.current = { x: t.clientX, y: t.clientY }
-  }
-
-  const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    const start = touchStart.current
-    if (!start) return
-    touchStart.current = null
-
-    const t = e.changedTouches[0]
-    const dx = t.clientX - start.x
-    const dy = t.clientY - start.y
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < 24) return
-
-    if (Math.abs(dx) > Math.abs(dy)) move(dx > 0 ? 'right' : 'left')
-    else move(dy > 0 ? 'down' : 'up')
-  }
+  const { state, newGame, keepGoing, save, load, hasSave, notice } = useGame()
 
   return (
     <div className="game2048">
@@ -51,14 +29,22 @@ export default function Game2048() {
         <p>
           Join the tiles and reach <b>2048</b>.
         </p>
-        <button onClick={newGame}>New game</button>
       </div>
+
+      <div className="g-actions">
+        <button onClick={newGame}>New game</button>
+        <button onClick={save}>Save</button>
+        <button onClick={load} disabled={!hasSave}>
+          Load
+        </button>
+      </div>
+      <p className="g-notice" role="status">
+        {notice}
+      </p>
 
       <div
         className="g-board"
         aria-label="2048 game board"
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
       >
         {Array.from({ length: SIZE * SIZE }, (_, i) => (
           <div

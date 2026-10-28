@@ -141,6 +141,10 @@ export function gameReducer(state: GameState, action: Action): GameState {
     case 'keepGoing':
       return { ...state, status: 'playing', keepGoing: true }
 
+    case 'load':
+      // Keep the best score we already know about
+      return { ...action.state, best: Math.max(state.best, action.state.score) }
+
     case 'cleanup':
       return { ...state, tiles: state.tiles.filter((t) => !t.removing) }
 
@@ -170,5 +174,78 @@ export function gameReducer(state: GameState, action: Action): GameState {
         status,
       }
     }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Saving and loading
+// ---------------------------------------------------------------------------
+
+/** The shape written to localStorage. Animation flags and the best score are not saved. */
+export interface SavedGame {
+  version: 1
+  tiles: { id: number; value: number; row: number; col: number }[]
+  score: number
+  nextId: number
+  status: Status
+  keepGoing: boolean
+}
+
+export function toSavedGame(state: GameState): SavedGame {
+  return {
+    version: 1,
+    tiles: state.tiles
+      .filter((t) => !t.removing)
+      .map(({ id, value, row, col }) => ({ id, value, row, col })),
+    score: state.score,
+    nextId: state.nextId,
+    status: state.status,
+    keepGoing: state.keepGoing,
+  }
+}
+
+function isCount(n: unknown): n is number {
+  return typeof n === 'number' && Number.isInteger(n) && n >= 0
+}
+
+/** Validates untrusted data (e.g. parsed JSON). Returns a game state, or null if it is not a valid save. */
+export function parseSavedGame(raw: unknown): GameState | null {
+  if (typeof raw !== 'object' || raw === null) return null
+  const data = raw as Record<string, unknown>
+  const { tiles, score, nextId, status, keepGoing } = data
+
+  if (data.version !== 1) return null
+  if (!Array.isArray(tiles) || tiles.length > SIZE * SIZE) return null
+  if (!isCount(score) || !isCount(nextId)) return null
+  if (status !== 'playing' && status !== 'won' && status !== 'over') return null
+  if (typeof keepGoing !== 'boolean') return null
+
+  const seenIds = new Set<number>()
+  const seenCells = new Set<number>()
+  const result: Tile[] = []
+
+  for (const item of tiles) {
+    if (typeof item !== 'object' || item === null) return null
+    const { id, value, row, col } = item as Record<string, unknown>
+    if (!isCount(id) || !isCount(value) || !isCount(row) || !isCount(col)) return null
+    if (row >= SIZE || col >= SIZE || id >= nextId) return null
+    // Tile values are powers of two from 2 up to the theoretical maximum of 131072
+    if (value < 2 || value > 131072 || (value & (value - 1)) !== 0) return null
+
+    const cell = row * SIZE + col
+    if (seenIds.has(id) || seenCells.has(cell)) return null
+    seenIds.add(id)
+    seenCells.add(cell)
+
+    result.push({ id, value, row, col, isNew: false, merged: false, removing: false })
+  }
+
+  return {
+    tiles: result,
+    score,
+    best: 0,
+    nextId,
+    status: status as Status,
+    keepGoing,
   }
 }
